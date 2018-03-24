@@ -1,0 +1,13 @@
+{% extends "default.html" %}
+{% block right_column %}
+
+    <h2>Latest items</h2>
+    <table class="table">
+        {% for item in latest_items %}
+            <tr>
+                <td><a href="{{ url_for('get_item', category=item.category.name, item=item.name) }}">{{ item.name }}</a> <span class="text-secondary">({{ item.category.name }})</span></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

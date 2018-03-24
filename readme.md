@@ -1,0 +1,1 @@
+http://flask-dance.readthedocs.io/en/latest/multi-user.html

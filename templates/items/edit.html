@@ -1,0 +1,17 @@
+{% extends "app.html" %}
+{% block content %}
+
+    <div class="card">
+        <h2 class="card-header">{{ item.name }}</h2>
+        <p class="card-body card-text">
+            {{ item.description }}
+        </p>
+        {% if current_user.is_authenticated %}
+             <div class=" card-footer btn-group float-right" role="group">
+                <button type="button" class="btn btn-secondary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

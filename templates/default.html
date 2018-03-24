@@ -1,0 +1,22 @@
+{% extends "app.html" %}
+{% block content %}
+
+    <div class="card">
+        <div class="card-body row">
+            <div class="col-md-auto">
+                <h2>Categories</h2>
+                <table class="table">
+                    {% for category in categories %}
+                        <tr>
+                          <td><a href="{{ url_for('get_category', category=category.name) }}">{{ category.name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-md">
+                {% block right_column %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

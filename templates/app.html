@@ -15,7 +15,9 @@
             {% if current_user.is_authenticated %}
                 <a class="btn btn-outline-danger my-2 my-sm-0" href="{{ url_for('logout') }}">Logout</a>
             {% else %}
-                <a class="btn btn-outline-success my-2 my-sm-0" href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for("google.login") }}" class='btn btn-outline-success my-2 my-sm-0'>
+                    <i class="fab fa-google"></i> Sign in with Google
+                </a>
             {% endif %}
         </form>
         {% if error %}

@@ -2,12 +2,12 @@
 {% block content %}
 
     <div class="card">
-        <h2 class="card-header"><i class="fas fa-exclamation-circle text-danger"></i> {{ item.name }}</h2>
+        <h2 class="card-header"><i class="fas fa-exclamation-circle text-danger"></i> {{ category.name }}</h2>
         <p class="card-body card-text">
-            Are you sure you wan't to delete the item <code>{{ item.name }}</code>?
+            Are you sure you wan't to delete the category <code>{{ category.name }}</code>?
         </p>
          <div class=" card-footer btn-group float-right" role="group">
-             <a href="{{ url_for('get_item', category=category, item=item.name) }}" class="btn btn-secondary">No</a>
+             <a href="{{ url_for('get_category', category=category.name) }}" class="btn btn-secondary">No</a>
              <form action = "" method = "post">
                  <input type="submit" class="btn btn-danger" value="Yes"/>
              </form>

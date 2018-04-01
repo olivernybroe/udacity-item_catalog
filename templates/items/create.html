@@ -2,7 +2,6 @@
 {% block content %}
     <form class="card" method="post">
         {{ form.csrf_token }}
-        <h2 class="card-header"><i class="fas fa-edit"></i> {{ item.name }}</h2>
         <div class="card-body card-text">
             <div class="form-group">
                 {{ form.name.label }}
@@ -24,7 +23,7 @@
             </div>
         </div>
         <div class=" card-footer btn-group float-right" role="group">
-            {{ form.submit(class_="btn btn-warning")}}
+            {{ form.submit(class_="btn btn-warning", value="Create")}}
         </div>
     </form>
 

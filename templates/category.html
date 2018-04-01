@@ -1,7 +1,12 @@
 {% extends "default.html" %}
 {% block right_column %}
 
-    <h2>{{ category.name }} Items ({{ category.items | count }} items)</h2>
+    <h2>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('create_item', category=category.name)}}" class="fas fa-plus-circle text-success"></a>
+        {% endif %}
+        {{ category.name }} Items ({{ category.items | count }} items)
+    </h2>
     <table class="table">
         {% for item in items %}
             <tr>

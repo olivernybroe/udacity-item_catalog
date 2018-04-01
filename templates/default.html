@@ -8,10 +8,25 @@
                 <table class="table">
                     {% for category in categories %}
                         <tr>
-                          <td><a href="{{ url_for('get_category', category=category.name) }}">{{ category.name }}</a></td>
+                          <td>
+                              {% if current_user.is_authenticated %}
+                                  <a href="{{ url_for('delete_category', category=category.name) }}" class="fas fa-trash-alt text-danger"></a>
+                                  <a href="{{ url_for('edit_category', category=category.name) }}" class="fas fa-edit text-warning"></a>
+                              {% endif %}
+                              <a href="{{ url_for('get_category', category=category.name) }}">{{ category.name }}</a>
+                          </td>
                         </tr>
                     {% endfor %}
                 </table>
+                {% if current_user.is_authenticated %}
+                    <form class="input-group input-group-sm" method="post" action="{{ url_for('create_category') }}">
+                        {{ categoryForm.csrf_token }}
+                        {{ categoryForm.name(class_="form-control", placeholder="New category...") }}
+                        <div class="input-group-append">
+                            {{ categoryForm.submit(class_="btn btn-sm btn-outline-success") }}
+                        </div>
+                    </form>
+                {% endif %}
             </div>
             <div class="col-md">
                 {% block right_column %}{% endblock %}
